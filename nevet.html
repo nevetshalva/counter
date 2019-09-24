@@ -7,7 +7,8 @@
 
     <style>
         body{
-            background: #baeeff;
+            background: black;
+            color: burlywood;
         }
         h1 {
             width: 300px;
@@ -20,7 +21,7 @@
             border: 3px solid red;
             text-align: center;
             font-size: 50px;
-            
+
         }
         div:hover{
             color: black;
@@ -33,9 +34,9 @@
 
 <div id="counter-click">+</div>
 
- <div id="show-count-click">
-     1
- </div>
+<div id="show-count-click">
+    1
+</div>
 
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -46,12 +47,51 @@
 <script>
 
   $(document).ready(function() {
-    // ------------------------------
-    //
-    // ------------------------------
+
+    var singers = [
+      {
+        name: 'nevet',
+        age: 14,
+      } ,
+      {
+        name: 'shefa',
+        age: 12,
+      },
+      {
+        name: 'ema',
+        age: 45,
+      },
+      {
+        name: 'aba',
+        age: 45,
+      },
+    ];
+
+
+    console.log("singers:",singers);
+
+    var i = 0 ;
+
     $("#counter-click").click(function() {
       console.log('counter-click was click');
 
+      if(singers[i] === undefined ){
+        i = 0 ;
+      }
+
+      $('#show-count-click').text(singers[i].name + " "+singers[i].age);
+
+      i = i + 1 ;
+
+    });
+
+
+
+    // ------------------------------
+    //
+    // ------------------------------
+/*    $("#counter-click").click(function() {
+      console.log('counter-click was click');
 
       var curentNubmer =  $('#show-count-click').text().trim();
 
@@ -65,11 +105,9 @@
       console.log('newValue: ' ,newValue);
       $('#show-count-click').text(newValue);
 
-    });
+    });*/
 
 
   }(jQuery));
 
 </script>
-
-</html>
